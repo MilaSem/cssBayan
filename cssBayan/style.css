@@ -1,7 +1,120 @@
-h1 {
-    color: red;
+html {
+    font-size: 16px;
+    width: 100vw;
+    overflow-x: hidden; /*чтобы страница не дёргалась при появлении вертикального скролла*/
 }
 
-p {
-    color: blue;
+body {
+    margin: 0;
+    color: #000;
+    background-color: #f0f1e6d7;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    box-sizing: border-box;    
 }
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+/*.acc {
+
+}*/
+
+.acc__title {
+    margin: 1.25rem 0;
+}
+
+.acc__container {
+    margin: 4rem auto;
+    width: 37.5rem;
+}
+
+.acc__item {
+    display: flex;
+    flex-direction: column;
+    border-top: solid #d9d9d9 0.125rem;
+}
+
+.acc__container input { /*невидимый чекбокс*/
+    display: none;    
+}
+
+.acc__container label {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   cursor: pointer;
+   color: blue;
+   transition: color 0.1s ease-in;
+}
+
+.acc__text {
+    margin: 0.75rem 0;
+}
+
+.acc__switch {
+    opacity: 0; /*должны проявиться только при наведении курсора*/
+    margin: 0.625rem 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url(./img/plus.svg);
+    transition: background-image 0.3s ease-in;    
+    background-size: contain;
+}
+
+.acc__img {
+    margin: 0 auto;
+    height: 0;    
+    overflow: hidden;    
+}
+
+.acc__img img {
+    width: 18.75rem;
+    height: 18.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.acc__container:hover {
+    cursor: pointer;
+}
+
+.acc__container:hover .acc__switch {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
+.acc__container:hover label {
+    color: black;
+}
+
+.acc__container input:checked + label {
+    color: black;
+}
+
+.acc__container input:checked + label .acc__switch {    
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url(./img/close.svg);
+    transition: background-image 0.3s ease-in;   
+    background-size: contain;
+}
+
+.acc__container input:checked + label + .acc__img { /*плавное появление картинки*/
+    height: auto;
+    opacity: 0;
+    animation: animation_opacity 1s forwards;   
+}
+
+/*.acc__container label:hover + .acc__img {
+    height: auto;
+    opacity: 0;
+    animation: animation_opacity 1s forwards;   
+}*/
+
+@keyframes animation_opacity {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
